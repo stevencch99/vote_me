@@ -1,0 +1,23 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#candidate_form {
+  input[type="text"],
+  textarea { font-size: 25px; }
+  div {
+    margin: 10px 0;
+    width: 300px;
+    input {
+      width: 100%;
+    }
+  }
+  input[type="submit"] {
+    color: #fff;
+    background-color: red;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 20px;
+  }
+}

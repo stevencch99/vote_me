@@ -1,0 +1,25 @@
+<h1>新增候選人</h1>
+<a href="/">回候選人列表</a>
+<%# <a href="/candidates">回候選人列表</a> %>
+
+
+
+<form action="/candidates" method="post" id="candidate_form">
+  <div>
+    <label for="name">姓名</label>
+    <input type="text" name="name" id="name">
+  </div>
+  <div>
+    <label for="age">年齡</label>
+    <input type="text" name="age" id="age">
+  </div>
+  <div>
+    <label for="party">黨派</label>
+    <input type="text" name="party" id="party">
+  </div>
+  <div>
+    <label for="politics">政見</label>
+    <textarea name="politics" id="politics" cols="30" rows="10" id="politice"></textarea>
+  </div>
+  <input type="submit" value="新增候選人">
+</form>

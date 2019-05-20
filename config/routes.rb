@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # rails 3 舊寫法
+  # get '/', controller: 'pages', action: 'home'
+
+  # get '/', to: 'pages#home'
+  # 改將首頁設定為 candidates#index
+  root 'candidates#index'
+  resources :candidates
 end

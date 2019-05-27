@@ -2,6 +2,16 @@
 <a href="/">回候選人列表</a>
 <%# <a href="/candidates">回候選人列表</a> %>
 
+<% if @candidate.errors.any? %>
+  <ul>
+  <% @candidate.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+
+
 <%= form_for(@candidate, html: {id: 'candidate_form'}) do |f| %>
   <div>
     <%# <label for="name">姓名</label> %>

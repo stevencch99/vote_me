@@ -21,4 +21,70 @@
     padding: 5px;
     font-size: 20px;
   }
+
+  .field_with_errors {
+    display: inline;
+    
+    input{
+      border-color: red;
+      border-width: 2px;
+    }
+    label {
+      color: red;
+      font-weight: 700;
+    }
+  }
+}
+
+.candidate-list {
+  width: 960px;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+
+
+  .candidate-card {
+    box-sizing: border-box;
+    width: 300px;
+    margin: 10px 5px;
+    padding: 5px;
+    background-color: #ddd;
+
+    img { width: 100%; }
+
+    .info {
+      width: 100%;
+      h1 {
+        font-size: 25px;
+        font-weight: 200;
+        margin-top: 5px;
+        margin-bottom:5px;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: 300;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+.head {
+  text-align: center;
+  // justify-content: center;
 }

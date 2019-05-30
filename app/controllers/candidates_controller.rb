@@ -1,10 +1,26 @@
 class CandidatesController < ApplicationController
+  before_action :find_candidate, only: [:show, :edit, :update, :destroy]
   def index
     @candidates = Candidate.all
   end
 
+  def show
+  end
+
   def new
     @candidate = Candidate.new
+  end
+
+  def edit
+  end
+
+  def update
+    # binding.pry
+    if @candidate.update(candidate_params)
+      redirect_to root_path, notice: '更新成功'
+    else
+      render :edit
+    end
   end
 
   def create
@@ -13,8 +29,7 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
     
     if @candidate.save
-      flash[:notice] = '新增成功'
-      redirect_to '/'
+      redirect_to root_path, notice: '新增成功'
     else
       # 註解掉 flash[] 因為輸入失敗會直接以紅框提醒，故不需要另外再提醒失敗
       # flash[:notice] = '新增失敗'
@@ -27,7 +42,15 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def destroy
+    @candidate.destroy
+    redirect_to root_path, notice: '候選人已刪除'
+  end
+
   private
+  def find_candidate
+    @candidate = Candidate.find_by(id: params[:id])
+  end
   def candidate_params
     params.require(:candidate).permit(:name, :age, :party, :politics)
   end

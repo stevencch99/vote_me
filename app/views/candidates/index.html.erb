@@ -13,7 +13,10 @@
     <div class="info">
     <h1><%= candidate.name %>(<%= candidate.age %>)</h1>
     <h2><%= candidate.party %></h2>
-    <a href="#" class="more-detail">看政見</a>
+    <%= link_to '政見', candidate, class: 'btn more-detail' %>
+    <%= link_to '投票', '#', class: 'btn vote' %>
+    <%= link_to '修改', edit_candidate_path(candidate), class: 'btn update' %>
+    <%= link_to '刪除', candidate, method: 'delete', data: { confirm: '確認刪除？'}, class: 'btn btn-danger' %>
     </div>
   </div>
   <%# 候選人 end %>

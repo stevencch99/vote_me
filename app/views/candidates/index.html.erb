@@ -5,18 +5,22 @@
 
 <div class="candidate-list container">
   <% @candidates.each do |candidate| %>
-  <%# 候選人 start %>
+  <%# 候選人 each loop start %>
   <div class="candidate-card card">
     <div class="card-avatar">
     <img src="https://picsum.photos/300/200/?random1" alt="圖片說明">
     </div>
     <div class="info">
-    <h1><%= candidate.name %>(<%= candidate.age %>)</h1>
-    <h2><%= candidate.party %></h2>
-    <%= link_to '政見', candidate, class: 'btn more-detail' %>
-    <%= link_to '投票', '#', class: 'btn vote' %>
-    <%= link_to '修改', edit_candidate_path(candidate), class: 'btn update' %>
-    <%= link_to '刪除', candidate, method: 'delete', data: { confirm: '確認刪除？'}, class: 'btn btn-danger' %>
+    <div class="candidate-detail">
+      <h1><%= candidate.name %>(<%= candidate.age %>)</h1>
+      <h2><%= candidate.party %></h2>
+    </div>
+    <div class="btn-list">
+      <%= link_to '政見', candidate, class: 'btn btn-info more-detail' %>
+      <%= link_to '投票', '#', class: 'btn btn-info vote' %>
+      <%= link_to '修改', edit_candidate_path(candidate), class: 'btn btn-info update' %>
+      <%= link_to '刪除', candidate, method: 'delete', data: { confirm: '確認刪除？'}, class: 'btn btn-danger' %>
+    </div>
     </div>
   </div>
   <%# 候選人 end %>

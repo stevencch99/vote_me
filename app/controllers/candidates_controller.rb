@@ -16,7 +16,8 @@ class CandidatesController < ApplicationController
       flash[:notice] = '新增成功'
       redirect_to '/'
     else
-      flash[:notice] = '新增失敗'
+      # 註解掉 flash[] 因為輸入失敗會直接以紅框提醒，故不需要另外再提醒失敗
+      # flash[:notice] = '新增失敗'
       # 借用 new 的 template 來用
 
       # render action: :new

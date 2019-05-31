@@ -48,9 +48,13 @@ class CandidatesController < ApplicationController
   end
 
   private
+
   def find_candidate
+    # .find method, a shorter way to find data, but less params options to operate
+    # @candidate = Candidate.find(params[:id])
     @candidate = Candidate.find_by(id: params[:id])
   end
+  
   def candidate_params
     params.require(:candidate).permit(:name, :age, :party, :politics)
   end

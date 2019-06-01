@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   # get '/', to: 'pages#home'
   # 改將首頁設定為 candidates#index
   root 'candidates#index'
-  resources :candidates
+  resources :candidates do
+    member do
+      patch :vote
+    end
+  end
 end

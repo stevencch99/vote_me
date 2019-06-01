@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :find_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :find_candidate, only: [:show, :edit, :update, :destroy, :vote]
   def index
     @candidates = Candidate.all
   end
@@ -41,13 +41,20 @@ class CandidatesController < ApplicationController
       # render file: '../views/candidates/new.html.erb'
     end
   end
-
+  
   def destroy
     @candidate.destroy
     redirect_to root_path, notice: '候選人已刪除'
   end
-
+  
+  def vote
+    @candidate.vote += 1
+    @candidate.save
+    redirect_to root_path, notice: '投票完成'
+  end
+  
   private
+
   def find_candidate
     @candidate = Candidate.find_by(id: params[:id])
   end

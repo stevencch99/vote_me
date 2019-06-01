@@ -1,0 +1,18 @@
+<h1>候選人資訊</h1>
+<%= link_to '回候選人列表', root_path, { id: 'test-id' } %>
+<%#= render 'form', candidate: @candidate %>
+
+<table>
+  <tr>
+    <th>姓名</th>
+    <th>年齡</th>
+    <th>政黨</th>
+    <th>政見</th>
+  </tr>
+  <tr>
+    <td><%= @candidate.name %></td>
+    <td><%= @candidate.age %></td>
+    <td><%= @candidate.party %></td>
+    <td><%= @candidate.politics %></td>
+  </tr>
+</table>

@@ -7,15 +7,10 @@ class CandidatesController < ApplicationController
   def show
   end
 
-  def new
-    @candidate = Candidate.new
-  end
-
   def edit
   end
 
   def update
-    # binding.pry
     if @candidate.update(candidate_params)
       redirect_to root_path, notice: '更新成功'
     else
@@ -23,9 +18,11 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def new
+    @candidate = Candidate.new
+  end
+
   def create
-    # binding.pry
-    # render html: 'abc'
     @candidate = Candidate.new(candidate_params)
     
     if @candidate.save

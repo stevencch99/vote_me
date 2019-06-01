@@ -7,15 +7,10 @@ class CandidatesController < ApplicationController
   def show
   end
 
-  def new
-    @candidate = Candidate.new
-  end
-
   def edit
   end
 
   def update
-    # binding.pry
     if @candidate.update(candidate_params)
       redirect_to root_path, notice: '更新成功'
     else
@@ -23,9 +18,11 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def new
+    @candidate = Candidate.new
+  end
+
   def create
-    # binding.pry
-    # render html: 'abc'
     @candidate = Candidate.new(candidate_params)
     
     if @candidate.save
@@ -56,8 +53,11 @@ class CandidatesController < ApplicationController
   private
 
   def find_candidate
+    # .find method, a shorter way to find data, but less params options to operate
+    # @candidate = Candidate.find(params[:id])
     @candidate = Candidate.find_by(id: params[:id])
   end
+  
   def candidate_params
     params.require(:candidate).permit(:name, :age, :party, :politics)
   end

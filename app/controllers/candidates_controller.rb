@@ -4,7 +4,9 @@ class CandidatesController < ApplicationController
   # before_action :find_candidate, except: [:index, :new, :create]
 
   def index
-    @candidates = Candidate.all
+    # @candidates = Candidate.all
+    # using kaminari gem make limit candidate data displayed
+    @candidates = Candidate.all.page(params[:page]).per(3)
   end
 
   def show

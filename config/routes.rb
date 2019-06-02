@@ -10,4 +10,7 @@ Rails.application.routes.draw do
       patch :vote
     end
   end
+
+  # 較長的寫法（直接寫路徑）：
+  # patch '/candidates/:id/vote', to: 'candidates#vote'
 end

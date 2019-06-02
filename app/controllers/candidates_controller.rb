@@ -1,5 +1,8 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: [:show, :edit, :update, :destroy, :vote]
+  # before_action only 的反義詞
+  # before_action :find_candidate, except: [:index, :new, :create]
+
   def index
     @candidates = Candidate.all
   end
@@ -45,11 +48,16 @@ class CandidatesController < ApplicationController
   end
   
   def vote
-    @candidate.vote += 1
-    @candidate.save
+    # Option 1. 由 “票” 的角度新增候選人：
+    # 創造一張票，寫進候選人和 client IP
+    # Vote.create(candidate: @candidate, ip_address: request.remote_ip)
+
+    # Option 2. 由候選人的角度寫入票數(比較適合寫在 candidates controller 這裡)
+    @candidate.votes.create(ip_address: request.remote_ip)
+    
     redirect_to root_path, notice: '投票完成'
   end
-  
+
   private
 
   def find_candidate
@@ -57,7 +65,7 @@ class CandidatesController < ApplicationController
     # @candidate = Candidate.find(params[:id])
     @candidate = Candidate.find_by(id: params[:id])
   end
-  
+
   def candidate_params
     params.require(:candidate).permit(:name, :age, :party, :politics)
   end

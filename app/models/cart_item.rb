@@ -8,4 +8,8 @@ class CartItem
   def increment(n = 1)
     @quantity += n
   end
+
+  def total_price
+    
+  end
 end

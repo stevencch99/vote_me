@@ -16,7 +16,14 @@ RSpec.describe Cart, type: :model do
       expect(cart.items.first.quantity).to be 6
     end
     it "商品可以放進購物車，也可以再拿出來。" do
-      
+      p1 = create(:product)
+      p2 = create(:product)
+
+      2.times { cart.add_item(p1.id) }
+      3.times { cart.add_item(p2.id) }
+
+      expect(cart.items.first.product).to be_a Product
+      expect(cart.items.first.product.title).to eq p1.title
     end
     # it "每個 CartItem 可以計算自己的金額。" do
     # end

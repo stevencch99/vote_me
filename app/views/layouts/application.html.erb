@@ -13,7 +13,9 @@
 
   <body>
     <%#= flash[:notice] %>
-    <%= notice %>
-    <%= yield %>
+    <div class="container">
+      <%= notice %>
+      <%= yield %>
+    </div>
   </body>
 </html>

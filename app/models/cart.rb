@@ -30,13 +30,13 @@ class Cart
   end
 
   def serialize
-    result = items.map { |item| { product_id: item.product_id, quantity: item.quantity} }
-    { items: result }
+    result = items.map { |item| { "product_id" => item.product_id, "quantity" => item.quantity} }
+    { "items" => result }
   end
 
   def self.from_hash(hash)
-    if hash && hash[:items]
-      new hash[:items].map { |item| CartItem.new(item[:product_id], item[:quantity]) }
+    if hash && hash["items"]
+      new hash["items"].map { |item| CartItem.new(item["product_id"], item["quantity"]) }
     else
       new
     end

@@ -75,10 +75,11 @@ RSpec.describe Cart, type: :model do
   private
 
   def session_hash
+    # 網路傳送的過程中 symble 會變成字串，故這邊採用舊式寫法
     {
-      items: [
-        { product_id: 1, quantity: 3 },
-        { product_id: 2, quantity: 5 }
+      "items" => [
+        { "product_id" => 1, "quantity" => 3 },
+        { "product_id" => 2, "quantity" => 5 }
       ]
     }
   end

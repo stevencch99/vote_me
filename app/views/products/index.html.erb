@@ -1,10 +1,10 @@
 <h1>產品列表</h1>
 
-<% @products.each do |p| %>
 <ul>
-  <li><%= p.title %></li>
-  <li><%= p.price %></li>
-  <li><%= p.description %></li>
-  <li><%= p.is_available %></li>
+  <% @products.each do |p| %>
+  <li>標題：<%= p.title %> | <%= link_to  "加入購物車", add_cart_path(p.id), method: 'put' %></li>
+  <li>價格：<%= p.price %></li>
+  <li>描述：<%= p.description %></li>
+  <li>庫存：<%= p.is_available %></li>
+  <% end %>
 </ul>
-<% end %> 

@@ -14,8 +14,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products
-
   # 較長的寫法（直接寫路徑）：
   # patch '/candidates/:id/vote', to: 'candidates#vote'
+  
+  resources :products
+  resource :cart, only: [:show, :destroy] do
+    collection do
+      put :add, path: 'add/:id'
+    end
+  end
 end

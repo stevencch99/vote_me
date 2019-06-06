@@ -14,7 +14,8 @@
   <body>
     <%#= flash[:notice] %>
     <div class="container">
-      <%= notice %>
+      <%= render 'shared/nav' %>
+      <%= render 'shared/flash' %>
       <%= yield %>
     </div>
   </body>

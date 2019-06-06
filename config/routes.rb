@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # rails 3 舊寫法
   # get '/', controller: 'pages', action: 'home'
 

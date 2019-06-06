@@ -4,7 +4,9 @@
 </div>
 
 
-<%= paginate @candidates %>
+<div class="container">
+  <%= paginate @candidates %>
+</div>
 <div class="candidate-list container">
   <% @candidates.each do |candidate| %>
   <%# 候選人 each loop start %>
@@ -20,9 +22,9 @@
     </div>
     <div class="btn-list">
       <%= link_to '政見', candidate, class: 'btn btn-info more-detail' %>
-      <%= link_to '投票', vote_candidate_path(candidate), method: 'patch', data: { confirm: '確定投給此候選人？' }, class: 'btn btn-info vote' %>
-      <%= link_to '修改', edit_candidate_path(candidate), class: 'btn btn-info update' %>
-      <%= link_to '刪除', candidate, method: 'delete', data: { confirm: '確認刪除？'}, class: 'btn btn-danger' %>
+      <%= link_to '投票', vote_candidate_path(candidate), method: 'patch', data: { confirm: '確定投給此候選人？' }, class: 'btn btn-info vote' if user_signed_in? %>
+      <%= link_to '修改', edit_candidate_path(candidate), class: 'btn btn-info update' if user_signed_in? %>
+      <%= delete_link_to '刪除', candidate %>
     </div>
     </div>
   </div>

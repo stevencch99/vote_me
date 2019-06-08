@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: [:show, :edit, :update, :destroy, :vote]
-  # before_action only 的反義詞
+  before_action :authenticate_user!, except: [:index, :show]
+  # before_action only 的反義詞 except
   # before_action :find_candidate, except: [:index, :new, :create]
 
   def index

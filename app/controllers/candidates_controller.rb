@@ -57,8 +57,13 @@ class CandidatesController < ApplicationController
     # Vote.create(candidate: @candidate, ip_address: request.remote_ip)
 
     # Option 2. 由候選人的角度寫入票數(比較適合寫在 candidates controller 這裡)
-    @candidate.votes.create(ip_address: request.remote_ip)
-    
+    # @candidate.votes.create(ip_address: request.remote_ip)
+    # 2.1
+    # @candidate.votes.create(ip_address: request.remote_ip, user: current_user)
+
+    # option 3. 由登入者的角度投票(相對單純)
+    current_user.votes.create!(ip_address: request.remote_ip, candidate: @candidate)
+    # binding.pry
     redirect_to root_path, notice: '投票完成'
   end
 

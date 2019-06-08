@@ -16,3 +16,9 @@
     <td><%= @candidate.politics %></td>
   </tr>
 </table>
+
+<ul>
+  <% @candidate.users.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+</ul>

@@ -13,7 +13,7 @@ class CandidatesController < ApplicationController
   end
 
   def edit
-    redirect_to root_path, alert: '請先登入' unless user_signed_in?
+    redirect_to root_path, alert: "請先登入" unless user_signed_in?
   end
 
   def update

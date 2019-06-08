@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def delete_link_to(label, url)
-    link_to label, url, class: 'destroy btn-danger', method: 'delete', data: { confirm: '確認刪除？'}
+    link_to label, url, class: 'destroy btn-danger', method: 'delete', data: { confirm: '確認刪除？' }
   end
 end

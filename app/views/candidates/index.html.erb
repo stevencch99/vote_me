@@ -12,7 +12,7 @@
   <%# 候選人 each loop start %>
   <div class="candidate-card card">
     <div class="card-avatar">
-    <img src="https://picsum.photos/300/200/?random1" alt="圖片說明">
+    <img src="https://picsum.photos/300/200/?random" alt="圖片說明">
     </div>
     <div class="info">
     <div class="candidate-detail">
@@ -24,7 +24,7 @@
       <%= link_to '政見', candidate, class: 'btn btn-info more-detail' %>
       <%= link_to '投票', vote_candidate_path(candidate), method: 'patch', data: { confirm: '確定投給此候選人？' }, class: 'btn btn-info vote' if user_signed_in? %>
       <%= link_to '修改', edit_candidate_path(candidate), class: 'btn btn-info update' if user_signed_in? %>
-      <%= delete_link_to '刪除', candidate %>
+      <%= delete_link_to '刪除', candidate if user_signed_in? %>
     </div>
     </div>
   </div>

@@ -9,10 +9,18 @@ Rails.application.routes.draw do
   # get '/', to: 'pages#home'
   # 改將首頁設定為 candidates#index
   root 'candidates#index'
+  # 限制前台網址
+  # resources :candidates, only: [:index, :show, :vote] do
   resources :candidates do
     member do
       patch :vote
     end
+  end
+
+  # 定義後台網址： /admin/candidates...
+  namespace :admin do
+    root 'pages#index'
+    resources :candidates
   end
 
   # 較長的寫法（直接寫路徑）：
@@ -26,4 +34,5 @@ Rails.application.routes.draw do
       put :add, path: 'add/:id'
     end
   end
+
 end

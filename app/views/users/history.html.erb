@@ -6,6 +6,6 @@
 <ul>
   <% current_user.votes.each do |vote| %>
   <%# binding.pry %>
-    <li>[<%= vote.candidate.name %>] <%= vote.created_at %></li>
+    <li>[<%= vote.candidate.name %>] | <%= vote.created_at %> | From: <%= vote.ip_address %></li>
   <% end %>
 </ul>

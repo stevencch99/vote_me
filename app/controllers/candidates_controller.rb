@@ -79,7 +79,4 @@ class CandidatesController < ApplicationController
     params.require(:candidate).permit(:name, :age, :party, :politics)
   end
 
-  def history
-  end
-
 end

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # 較長的寫法（直接寫路徑）：
   # patch '/candidates/:id/vote', to: 'candidates#vote'
   
-  get '/history', to: 'candidates#history'
+  get '/history', to: 'users#history'
 
   resources :products
   resource :cart, only: [:show, :destroy] do

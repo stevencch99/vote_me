@@ -1,0 +1,11 @@
+<h1>投票紀錄</h1>
+<%= link_to '回候選人列表', root_path, { id: 'test-id' } %>
+<%#= render 'form', candidate: @candidate %>
+
+
+<ul>
+  <% current_user.votes.each do |vote| %>
+  <%# binding.pry %>
+    <li>[<%= vote.candidate.name %>] <%= vote.created_at %></li>
+  <% end %>
+</ul>

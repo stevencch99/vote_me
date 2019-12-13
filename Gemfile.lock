@@ -160,7 +160,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (3.1.0)
-    puma (3.12.1)
+    puma (3.12.2)
     rack (2.0.7)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
@@ -305,7 +305,7 @@ DEPENDENCIES
   paranoia (~> 2.4, >= 2.4.2)
   pry-doc
   pry-rails
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.3)
   rails_admin (~> 1.4, >= 1.4.2)
   rspec-rails (~> 3.8, >= 3.8.2)

@@ -37,7 +37,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 # 後台管理工具
-gem 'rails_admin', '~> 1.4', '>= 1.4.2'
+gem 'rails_admin', '~> 1.4'
 
 # 軟刪除工具
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
